@@ -1,0 +1,6 @@
+// bkl import to build ITTIA C++ Database Object Storage API
+// Provided dependencies: dep_storage
+// Required dependencies: api_ittia_db_c
+
+// Path to storage API source bkl.
+import ../../ittiadb/src/storage.bkl;

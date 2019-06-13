@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "storage_encryption_cpp", "storage_encryption_cpp.vcxproj", "{84C2706A-BA2F-548D-9676-3195296E86FC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8} = {1B940593-CB00-5341-8E9C-4FCB0BA296C8}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "storage", "..\storage.vcxproj", "{1B940593-CB00-5341-8E9C-4FCB0BA296C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Additional Dependencies", "Additional Dependencies", "{88DBF460-71AB-5791-8785-614B373921E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84C2706A-BA2F-548D-9676-3195296E86FC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{84C2706A-BA2F-548D-9676-3195296E86FC}.Debug|Win32.Build.0 = Debug|Win32
+		{84C2706A-BA2F-548D-9676-3195296E86FC}.Debug|x64.ActiveCfg = Debug|x64
+		{84C2706A-BA2F-548D-9676-3195296E86FC}.Debug|x64.Build.0 = Debug|x64
+		{84C2706A-BA2F-548D-9676-3195296E86FC}.Release|Win32.ActiveCfg = Release|Win32
+		{84C2706A-BA2F-548D-9676-3195296E86FC}.Release|Win32.Build.0 = Release|Win32
+		{84C2706A-BA2F-548D-9676-3195296E86FC}.Release|x64.ActiveCfg = Release|x64
+		{84C2706A-BA2F-548D-9676-3195296E86FC}.Release|x64.Build.0 = Release|x64
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Debug|Win32.Build.0 = Debug|Win32
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Debug|x64.ActiveCfg = Debug|x64
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Debug|x64.Build.0 = Debug|x64
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Release|Win32.ActiveCfg = Release|Win32
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Release|Win32.Build.0 = Release|Win32
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Release|x64.ActiveCfg = Release|x64
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8} = {88DBF460-71AB-5791-8785-614B373921E6}
+	EndGlobalSection
+EndGlobal
