@@ -1,0 +1,18 @@
+program sql_select_query_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		sql_select_query.cpp 
+	}
+}
+
+
+program sql_parameters_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		sql_parameters.cpp 
+	}
+}

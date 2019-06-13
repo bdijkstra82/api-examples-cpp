@@ -1,0 +1,11 @@
+template src_cpp_examples_common {
+	includedirs += @srcdir;
+    headers {
+        db_iostream.h
+    }
+	sources {
+		main.cpp
+		db_main.cpp
+		db_iostream.cpp
+	}
+}

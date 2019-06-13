@@ -1,0 +1,9 @@
+program storage_encryption_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		storage_encryption.cpp 
+	}
+}
+

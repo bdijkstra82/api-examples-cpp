@@ -1,0 +1,27 @@
+program atomic_file_storage_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		atomic_file_storage.cpp 
+	}
+}
+
+program bulk_import_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		bulk_import.cpp 
+	}
+}
+
+program background_commit_cpp
+    : dep_storage
+    , src_cpp_examples_common
+{
+    sources {
+        background_commit.cpp
+    }
+}
+

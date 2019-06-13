@@ -1,0 +1,13 @@
+program phonebook_sql_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	headers {
+		phonebook_cpp.h
+	}
+
+	sources {
+		phonebook_sql.cpp
+		phonebook_console.cpp
+	}
+}

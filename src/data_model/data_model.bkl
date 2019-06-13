@@ -1,0 +1,28 @@
+program unicode_character_strings_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources {
+		unicode_character_strings.cpp
+	}
+}
+
+
+program datetime_intervals_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources {
+		datetime_intervals.cpp
+	}
+}
+
+program print_schema_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources {
+		print_schema.cpp
+	}
+}
+

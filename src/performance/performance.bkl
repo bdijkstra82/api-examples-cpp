@@ -1,0 +1,12 @@
+program random_key_benchmark_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	headers {
+		time_counter.h
+	}
+	sources { 
+		random_key_benchmark.cpp
+		time_counter.c
+	}
+}

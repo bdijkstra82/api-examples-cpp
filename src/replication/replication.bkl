@@ -1,0 +1,8 @@
+program initialize_mirror_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources {
+		initialize_mirror.cpp
+	}
+}

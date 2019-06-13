@@ -1,0 +1,18 @@
+program transaction_rollback_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		transaction_rollback.cpp 
+	}
+}
+
+
+program savepoint_rollback_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		savepoint_rollback.cpp 
+	}
+}

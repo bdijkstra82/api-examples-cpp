@@ -1,0 +1,19 @@
+program memory_storage_capacity_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		memory_storage_capacity.cpp 
+	}
+}
+
+
+program memory_disk_hybrid_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources { 
+		memory_disk_hybrid.cpp 
+	}
+}
+

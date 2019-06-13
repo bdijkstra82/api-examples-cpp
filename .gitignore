@@ -1,0 +1,12 @@
+*.ittiadb
+*.ittiadb-log
+
+*.opensdf
+*.sdf
+*.suo
+**/Debug/*
+**/Release/*
+*.d
+*.o
+
+/ittiadb/
