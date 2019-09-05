@@ -1,8 +1,9 @@
 template src_cpp_examples_common {
 	includedirs += @srcdir;
-    headers {
-        db_iostream.h
-    }
+	headers {
+		db_iostream.h
+		example_thread.h
+	}
 	sources {
 		main.cpp
 		db_main.cpp

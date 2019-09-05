@@ -6,3 +6,12 @@ program initialize_mirror_cpp
 		initialize_mirror.cpp
 	}
 }
+
+program incremental_backup_cpp
+	: dep_storage
+	, src_cpp_examples_common
+{
+	sources {
+		incremental_backup.cpp
+	}
+}

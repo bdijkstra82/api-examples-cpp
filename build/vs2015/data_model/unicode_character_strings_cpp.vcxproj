@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\common\db_iostream.h" />
+    <ClInclude Include="..\..\..\src\common\example_thread.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\storage.vcxproj">

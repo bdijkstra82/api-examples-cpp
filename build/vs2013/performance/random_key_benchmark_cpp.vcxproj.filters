@@ -20,6 +20,9 @@
     <ClInclude Include="..\..\..\src\common\db_iostream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\common\example_thread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\src\performance\time_counter.h">
       <Filter>Header Files</Filter>
     </ClInclude>

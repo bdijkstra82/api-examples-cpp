@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\common\db_iostream.h" />
+    <ClInclude Include="..\..\..\src\common\example_thread.h" />
     <ClInclude Include="..\..\..\src\performance\time_counter.h" />
   </ItemGroup>
   <ItemGroup>
