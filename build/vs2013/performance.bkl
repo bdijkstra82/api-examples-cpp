@@ -1,2 +1,2 @@
-srcdir security;
+srcdir performance;
 import ../../src/performance/performance.bkl;

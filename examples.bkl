@@ -1,5 +1,5 @@
 toolsets = gnu;
 
-import build/deps/ittiadb_sdk.bkl;
+import build/deps/dep_ittiadb-sdk.bkl;
 import build/deps/dep_storage-src.bkl;
 import src/console_examples_cpp.bkl;

@@ -3,7 +3,7 @@
 toolsets = vs2013;
 archs = x86 x86_64;
 
-import ../deps/ittiadb_sdk.bkl;
+import ../deps/dep_ittiadb-sdk.bkl;
 import ../deps/dep_storage-src.bkl;
 import ../../src/common/common.bkl;
 

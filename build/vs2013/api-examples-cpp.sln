@@ -75,7 +75,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "print_schema_cpp", "data_mo
 		{1B940593-CB00-5341-8E9C-4FCB0BA296C8} = {1B940593-CB00-5341-8E9C-4FCB0BA296C8}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "random_key_benchmark_cpp", "security\random_key_benchmark_cpp.vcxproj", "{F2CD67A5-CB01-5E27-8A50-D67F19FE1AFF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "random_key_benchmark_cpp", "performance\random_key_benchmark_cpp.vcxproj", "{F2CD67A5-CB01-5E27-8A50-D67F19FE1AFF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{1B940593-CB00-5341-8E9C-4FCB0BA296C8} = {1B940593-CB00-5341-8E9C-4FCB0BA296C8}
 	EndProjectSection

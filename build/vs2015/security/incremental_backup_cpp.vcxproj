@@ -13,10 +13,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{84C2706A-BA2F-548D-9676-3195296E86FC}</ProjectGuid>
+    <ProjectGuid>{B7693DA0-3B4F-5622-AE2D-3ECDE26D1720}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>storage_encryption_cpp</RootNamespace>
-    <ProjectName>storage_encryption_cpp</ProjectName>
+    <RootNamespace>incremental_backup_cpp</RootNamespace>
+    <ProjectName>incremental_backup_cpp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -91,10 +91,11 @@
     <ClCompile Include="..\..\..\src\common\main.cpp" />
     <ClCompile Include="..\..\..\src\common\db_main.cpp" />
     <ClCompile Include="..\..\..\src\common\db_iostream.cpp" />
-    <ClCompile Include="..\..\..\src\security\storage_encryption.cpp" />
+    <ClCompile Include="..\..\..\src\replication\incremental_backup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\common\db_iostream.h" />
+    <ClInclude Include="..\..\..\src\common\example_thread.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\storage.vcxproj">

@@ -27,6 +27,7 @@
 ///
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <storage/ittiadb/connection.h>
 #include <storage/ittiadb/transaction.h>

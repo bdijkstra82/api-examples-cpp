@@ -93,7 +93,7 @@ replication: $(_builddir)libstorage.a
 	$(MAKE) -C src/replication -f GNUmakefile all
 
 $(_builddir)libstorage.a: $(_builddir)storage_row_definition.o $(_builddir)storage_row.o $(_builddir)storage_single_row.o $(_builddir)storage_single_field.o $(_builddir)storage_connection.o $(_builddir)storage_query.o $(_builddir)storage_sequence.o $(_builddir)storage_table.o $(_builddir)storage_table_watcher.o $(_builddir)storage_dbs_error_info.o
-	$(AR) rcu $@ $(_builddir)storage_row_definition.o $(_builddir)storage_row.o $(_builddir)storage_single_row.o $(_builddir)storage_single_field.o $(_builddir)storage_connection.o $(_builddir)storage_query.o $(_builddir)storage_sequence.o $(_builddir)storage_table.o $(_builddir)storage_table_watcher.o $(_builddir)storage_dbs_error_info.o
+	$(AR) rc $@ $(_builddir)storage_row_definition.o $(_builddir)storage_row.o $(_builddir)storage_single_row.o $(_builddir)storage_single_field.o $(_builddir)storage_connection.o $(_builddir)storage_query.o $(_builddir)storage_sequence.o $(_builddir)storage_table.o $(_builddir)storage_table_watcher.o $(_builddir)storage_dbs_error_info.o
 	$(RANLIB) $@
 
 $(_builddir)storage_row_definition.o: ittiadb/src/storage/data/row_definition.cpp
