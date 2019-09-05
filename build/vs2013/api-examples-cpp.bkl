@@ -1,4 +1,4 @@
-// Main bakefile for the ITTIA DB SQL C API examples.
+// Main bakefile for the ITTIA DB SQL C++ API examples.
 
 toolsets = vs2013;
 archs = x86 x86_64;

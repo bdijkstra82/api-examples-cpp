@@ -1,6 +1,6 @@
 // Main bakefile for the ITTIA DB SQL C++ API examples.
 
-toolsets = vs2015;
+toolsets = vs2017;
 archs = x86_64;
 
 import ../deps/dep_ittiadb-sdk.bkl;

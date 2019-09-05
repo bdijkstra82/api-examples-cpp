@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "random_key_benchmark_cpp", "random_key_benchmark_cpp.vcxproj", "{F2CD67A5-CB01-5E27-8A50-D67F19FE1AFF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8} = {1B940593-CB00-5341-8E9C-4FCB0BA296C8}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "storage", "..\storage.vcxproj", "{1B940593-CB00-5341-8E9C-4FCB0BA296C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Additional Dependencies", "Additional Dependencies", "{77E574AB-ABA6-58D3-BE2F-799749FF6437}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2CD67A5-CB01-5E27-8A50-D67F19FE1AFF}.Debug|x64.ActiveCfg = Debug|x64
+		{F2CD67A5-CB01-5E27-8A50-D67F19FE1AFF}.Debug|x64.Build.0 = Debug|x64
+		{F2CD67A5-CB01-5E27-8A50-D67F19FE1AFF}.Release|x64.ActiveCfg = Release|x64
+		{F2CD67A5-CB01-5E27-8A50-D67F19FE1AFF}.Release|x64.Build.0 = Release|x64
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Debug|x64.ActiveCfg = Debug|x64
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Debug|x64.Build.0 = Debug|x64
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Release|x64.ActiveCfg = Release|x64
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1B940593-CB00-5341-8E9C-4FCB0BA296C8} = {77E574AB-ABA6-58D3-BE2F-799749FF6437}
+	EndGlobalSection
+EndGlobal
