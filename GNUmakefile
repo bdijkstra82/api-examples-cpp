@@ -45,15 +45,6 @@ RANLIB ?= ranlib
 CC := cc
 CXX := c++
 
-# The directory for the build files, may be overridden on make command line.
-builddir = .
-
-ifneq ($(builddir),.)
-_builddir := $(builddir)/
-_builddir_error := $(shell mkdir -p $(_builddir) 2>&1)
-$(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_error)))
-endif
-
 # ------------
 # Configurable settings:
 # 
@@ -63,73 +54,36 @@ ITTIA_DB_HOME ?= /opt/ittiadb
 
 # ------------
 
-all: $(_builddir)libstorage.a application file_storage memory_storage error_handling sql security data_model performance replication
+all: application file_storage memory_storage error_handling sql security data_model performance replication
 
-application: $(_builddir)libstorage.a
+application:
 	$(MAKE) -C src/application -f GNUmakefile all
 
-file_storage: $(_builddir)libstorage.a
+file_storage:
 	$(MAKE) -C src/file_storage -f GNUmakefile all
 
-memory_storage: $(_builddir)libstorage.a
+memory_storage:
 	$(MAKE) -C src/memory_storage -f GNUmakefile all
 
-error_handling: $(_builddir)libstorage.a
+error_handling:
 	$(MAKE) -C src/error_handling -f GNUmakefile all
 
-sql: $(_builddir)libstorage.a
+sql:
 	$(MAKE) -C src/sql -f GNUmakefile all
 
-security: $(_builddir)libstorage.a
+security:
 	$(MAKE) -C src/security -f GNUmakefile all
 
-data_model: $(_builddir)libstorage.a
+data_model:
 	$(MAKE) -C src/data_model -f GNUmakefile all
 
-performance: $(_builddir)libstorage.a
+performance:
 	$(MAKE) -C src/performance -f GNUmakefile all
 
-replication: $(_builddir)libstorage.a
+replication:
 	$(MAKE) -C src/replication -f GNUmakefile all
 
-$(_builddir)libstorage.a: $(_builddir)storage_row_definition.o $(_builddir)storage_row.o $(_builddir)storage_single_row.o $(_builddir)storage_single_field.o $(_builddir)storage_connection.o $(_builddir)storage_query.o $(_builddir)storage_sequence.o $(_builddir)storage_table.o $(_builddir)storage_table_watcher.o $(_builddir)storage_dbs_error_info.o
-	$(AR) rc $@ $(_builddir)storage_row_definition.o $(_builddir)storage_row.o $(_builddir)storage_single_row.o $(_builddir)storage_single_field.o $(_builddir)storage_connection.o $(_builddir)storage_query.o $(_builddir)storage_sequence.o $(_builddir)storage_table.o $(_builddir)storage_table_watcher.o $(_builddir)storage_dbs_error_info.o
-	$(RANLIB) $@
-
-$(_builddir)storage_row_definition.o: ittiadb/src/storage/data/row_definition.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/data/row_definition.cpp
-
-$(_builddir)storage_row.o: ittiadb/src/storage/data/row.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/data/row.cpp
-
-$(_builddir)storage_single_row.o: ittiadb/src/storage/data/single_row.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/data/single_row.cpp
-
-$(_builddir)storage_single_field.o: ittiadb/src/storage/data/single_field.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/data/single_field.cpp
-
-$(_builddir)storage_connection.o: ittiadb/src/storage/ittiadb/connection.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/ittiadb/connection.cpp
-
-$(_builddir)storage_query.o: ittiadb/src/storage/ittiadb/query.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/ittiadb/query.cpp
-
-$(_builddir)storage_sequence.o: ittiadb/src/storage/ittiadb/sequence.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/ittiadb/sequence.cpp
-
-$(_builddir)storage_table.o: ittiadb/src/storage/ittiadb/table.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/ittiadb/table.cpp
-
-$(_builddir)storage_table_watcher.o: ittiadb/src/storage/ittiadb/table_watcher.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/ittiadb/table_watcher.cpp
-
-$(_builddir)storage_dbs_error_info.o: ittiadb/src/storage/ittiadb/dbs_error_info.c
-	$(CC) -c -o $@ $(CPPFLAGS) $(CFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ITTIA_DB_HOME)/include -Iittiadb/src ittiadb/src/storage/ittiadb/dbs_error_info.c
-
 clean:
-	rm -f $(_builddir)*.o
-	rm -f $(_builddir)*.d
-	rm -f $(_builddir)libstorage.a
 	$(MAKE) -C src/application -f GNUmakefile clean
 	$(MAKE) -C src/file_storage -f GNUmakefile clean
 	$(MAKE) -C src/memory_storage -f GNUmakefile clean
@@ -141,6 +95,3 @@ clean:
 	$(MAKE) -C src/replication -f GNUmakefile clean
 
 .PHONY: all clean application file_storage memory_storage error_handling sql security data_model performance replication
-
-# Dependencies tracking:
--include $(_builddir)*.d

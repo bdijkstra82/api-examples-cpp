@@ -65,20 +65,20 @@ ITTIA_DB_HOME ?= /opt/ittiadb
 
 all: $(_builddir)storage_encryption_cpp
 
-$(_builddir)storage_encryption_cpp: $(_builddir)storage_encryption_cpp_main.o $(_builddir)storage_encryption_cpp_db_main.o $(_builddir)storage_encryption_cpp_db_iostream.o $(_builddir)storage_encryption_cpp_storage_encryption.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)storage_encryption_cpp_main.o $(_builddir)storage_encryption_cpp_db_main.o $(_builddir)storage_encryption_cpp_db_iostream.o $(_builddir)storage_encryption_cpp_storage_encryption.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)storage_encryption_cpp: $(_builddir)storage_encryption_cpp_main.o $(_builddir)storage_encryption_cpp_db_main.o $(_builddir)storage_encryption_cpp_db_iostream.o $(_builddir)storage_encryption_cpp_storage_encryption.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)storage_encryption_cpp_main.o $(_builddir)storage_encryption_cpp_db_main.o $(_builddir)storage_encryption_cpp_db_iostream.o $(_builddir)storage_encryption_cpp_storage_encryption.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)storage_encryption_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)storage_encryption_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)storage_encryption_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)storage_encryption_cpp_storage_encryption.o: storage_encryption.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common storage_encryption.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common storage_encryption.cpp
 
 clean:
 	rm -f $(_builddir)*.o

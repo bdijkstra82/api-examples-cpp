@@ -65,35 +65,35 @@ ITTIA_DB_HOME ?= /opt/ittiadb
 
 all: $(_builddir)initialize_mirror_cpp $(_builddir)incremental_backup_cpp
 
-$(_builddir)initialize_mirror_cpp: $(_builddir)initialize_mirror_cpp_main.o $(_builddir)initialize_mirror_cpp_db_main.o $(_builddir)initialize_mirror_cpp_db_iostream.o $(_builddir)initialize_mirror_cpp_initialize_mirror.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)initialize_mirror_cpp_main.o $(_builddir)initialize_mirror_cpp_db_main.o $(_builddir)initialize_mirror_cpp_db_iostream.o $(_builddir)initialize_mirror_cpp_initialize_mirror.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)initialize_mirror_cpp: $(_builddir)initialize_mirror_cpp_main.o $(_builddir)initialize_mirror_cpp_db_main.o $(_builddir)initialize_mirror_cpp_db_iostream.o $(_builddir)initialize_mirror_cpp_initialize_mirror.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)initialize_mirror_cpp_main.o $(_builddir)initialize_mirror_cpp_db_main.o $(_builddir)initialize_mirror_cpp_db_iostream.o $(_builddir)initialize_mirror_cpp_initialize_mirror.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)initialize_mirror_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)initialize_mirror_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)initialize_mirror_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)initialize_mirror_cpp_initialize_mirror.o: initialize_mirror.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common initialize_mirror.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common initialize_mirror.cpp
 
-$(_builddir)incremental_backup_cpp: $(_builddir)incremental_backup_cpp_main.o $(_builddir)incremental_backup_cpp_db_main.o $(_builddir)incremental_backup_cpp_db_iostream.o $(_builddir)incremental_backup_cpp_incremental_backup.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)incremental_backup_cpp_main.o $(_builddir)incremental_backup_cpp_db_main.o $(_builddir)incremental_backup_cpp_db_iostream.o $(_builddir)incremental_backup_cpp_incremental_backup.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)incremental_backup_cpp: $(_builddir)incremental_backup_cpp_main.o $(_builddir)incremental_backup_cpp_db_main.o $(_builddir)incremental_backup_cpp_db_iostream.o $(_builddir)incremental_backup_cpp_incremental_backup.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)incremental_backup_cpp_main.o $(_builddir)incremental_backup_cpp_db_main.o $(_builddir)incremental_backup_cpp_db_iostream.o $(_builddir)incremental_backup_cpp_incremental_backup.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)incremental_backup_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)incremental_backup_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)incremental_backup_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)incremental_backup_cpp_incremental_backup.o: incremental_backup.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common incremental_backup.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common incremental_backup.cpp
 
 clean:
 	rm -f $(_builddir)*.o

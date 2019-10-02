@@ -65,35 +65,35 @@ ITTIA_DB_HOME ?= /opt/ittiadb
 
 all: $(_builddir)sql_select_query_cpp $(_builddir)sql_parameters_cpp
 
-$(_builddir)sql_select_query_cpp: $(_builddir)sql_select_query_cpp_main.o $(_builddir)sql_select_query_cpp_db_main.o $(_builddir)sql_select_query_cpp_db_iostream.o $(_builddir)sql_select_query_cpp_sql_select_query.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)sql_select_query_cpp_main.o $(_builddir)sql_select_query_cpp_db_main.o $(_builddir)sql_select_query_cpp_db_iostream.o $(_builddir)sql_select_query_cpp_sql_select_query.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)sql_select_query_cpp: $(_builddir)sql_select_query_cpp_main.o $(_builddir)sql_select_query_cpp_db_main.o $(_builddir)sql_select_query_cpp_db_iostream.o $(_builddir)sql_select_query_cpp_sql_select_query.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)sql_select_query_cpp_main.o $(_builddir)sql_select_query_cpp_db_main.o $(_builddir)sql_select_query_cpp_db_iostream.o $(_builddir)sql_select_query_cpp_sql_select_query.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)sql_select_query_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)sql_select_query_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)sql_select_query_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)sql_select_query_cpp_sql_select_query.o: sql_select_query.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common sql_select_query.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common sql_select_query.cpp
 
-$(_builddir)sql_parameters_cpp: $(_builddir)sql_parameters_cpp_main.o $(_builddir)sql_parameters_cpp_db_main.o $(_builddir)sql_parameters_cpp_db_iostream.o $(_builddir)sql_parameters_cpp_sql_parameters.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)sql_parameters_cpp_main.o $(_builddir)sql_parameters_cpp_db_main.o $(_builddir)sql_parameters_cpp_db_iostream.o $(_builddir)sql_parameters_cpp_sql_parameters.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)sql_parameters_cpp: $(_builddir)sql_parameters_cpp_main.o $(_builddir)sql_parameters_cpp_db_main.o $(_builddir)sql_parameters_cpp_db_iostream.o $(_builddir)sql_parameters_cpp_sql_parameters.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)sql_parameters_cpp_main.o $(_builddir)sql_parameters_cpp_db_main.o $(_builddir)sql_parameters_cpp_db_iostream.o $(_builddir)sql_parameters_cpp_sql_parameters.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)sql_parameters_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)sql_parameters_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)sql_parameters_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)sql_parameters_cpp_sql_parameters.o: sql_parameters.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common sql_parameters.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common sql_parameters.cpp
 
 clean:
 	rm -f $(_builddir)*.o

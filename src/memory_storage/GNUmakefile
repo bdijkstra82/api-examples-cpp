@@ -65,35 +65,35 @@ ITTIA_DB_HOME ?= /opt/ittiadb
 
 all: $(_builddir)memory_storage_capacity_cpp $(_builddir)memory_disk_hybrid_cpp
 
-$(_builddir)memory_storage_capacity_cpp: $(_builddir)memory_storage_capacity_cpp_main.o $(_builddir)memory_storage_capacity_cpp_db_main.o $(_builddir)memory_storage_capacity_cpp_db_iostream.o $(_builddir)memory_storage_capacity_cpp_memory_storage_capacity.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)memory_storage_capacity_cpp_main.o $(_builddir)memory_storage_capacity_cpp_db_main.o $(_builddir)memory_storage_capacity_cpp_db_iostream.o $(_builddir)memory_storage_capacity_cpp_memory_storage_capacity.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)memory_storage_capacity_cpp: $(_builddir)memory_storage_capacity_cpp_main.o $(_builddir)memory_storage_capacity_cpp_db_main.o $(_builddir)memory_storage_capacity_cpp_db_iostream.o $(_builddir)memory_storage_capacity_cpp_memory_storage_capacity.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)memory_storage_capacity_cpp_main.o $(_builddir)memory_storage_capacity_cpp_db_main.o $(_builddir)memory_storage_capacity_cpp_db_iostream.o $(_builddir)memory_storage_capacity_cpp_memory_storage_capacity.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)memory_storage_capacity_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)memory_storage_capacity_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)memory_storage_capacity_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)memory_storage_capacity_cpp_memory_storage_capacity.o: memory_storage_capacity.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common memory_storage_capacity.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common memory_storage_capacity.cpp
 
-$(_builddir)memory_disk_hybrid_cpp: $(_builddir)memory_disk_hybrid_cpp_main.o $(_builddir)memory_disk_hybrid_cpp_db_main.o $(_builddir)memory_disk_hybrid_cpp_db_iostream.o $(_builddir)memory_disk_hybrid_cpp_memory_disk_hybrid.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)memory_disk_hybrid_cpp_main.o $(_builddir)memory_disk_hybrid_cpp_db_main.o $(_builddir)memory_disk_hybrid_cpp_db_iostream.o $(_builddir)memory_disk_hybrid_cpp_memory_disk_hybrid.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)memory_disk_hybrid_cpp: $(_builddir)memory_disk_hybrid_cpp_main.o $(_builddir)memory_disk_hybrid_cpp_db_main.o $(_builddir)memory_disk_hybrid_cpp_db_iostream.o $(_builddir)memory_disk_hybrid_cpp_memory_disk_hybrid.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)memory_disk_hybrid_cpp_main.o $(_builddir)memory_disk_hybrid_cpp_db_main.o $(_builddir)memory_disk_hybrid_cpp_db_iostream.o $(_builddir)memory_disk_hybrid_cpp_memory_disk_hybrid.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)memory_disk_hybrid_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)memory_disk_hybrid_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)memory_disk_hybrid_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)memory_disk_hybrid_cpp_memory_disk_hybrid.o: memory_disk_hybrid.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common memory_disk_hybrid.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common memory_disk_hybrid.cpp
 
 clean:
 	rm -f $(_builddir)*.o

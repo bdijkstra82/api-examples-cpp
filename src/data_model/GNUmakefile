@@ -65,50 +65,50 @@ ITTIA_DB_HOME ?= /opt/ittiadb
 
 all: $(_builddir)unicode_character_strings_cpp $(_builddir)datetime_intervals_cpp $(_builddir)print_schema_cpp
 
-$(_builddir)unicode_character_strings_cpp: $(_builddir)unicode_character_strings_cpp_main.o $(_builddir)unicode_character_strings_cpp_db_main.o $(_builddir)unicode_character_strings_cpp_db_iostream.o $(_builddir)unicode_character_strings_cpp_unicode_character_strings.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)unicode_character_strings_cpp_main.o $(_builddir)unicode_character_strings_cpp_db_main.o $(_builddir)unicode_character_strings_cpp_db_iostream.o $(_builddir)unicode_character_strings_cpp_unicode_character_strings.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)unicode_character_strings_cpp: $(_builddir)unicode_character_strings_cpp_main.o $(_builddir)unicode_character_strings_cpp_db_main.o $(_builddir)unicode_character_strings_cpp_db_iostream.o $(_builddir)unicode_character_strings_cpp_unicode_character_strings.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)unicode_character_strings_cpp_main.o $(_builddir)unicode_character_strings_cpp_db_main.o $(_builddir)unicode_character_strings_cpp_db_iostream.o $(_builddir)unicode_character_strings_cpp_unicode_character_strings.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)unicode_character_strings_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)unicode_character_strings_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)unicode_character_strings_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)unicode_character_strings_cpp_unicode_character_strings.o: unicode_character_strings.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common unicode_character_strings.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common unicode_character_strings.cpp
 
-$(_builddir)datetime_intervals_cpp: $(_builddir)datetime_intervals_cpp_main.o $(_builddir)datetime_intervals_cpp_db_main.o $(_builddir)datetime_intervals_cpp_db_iostream.o $(_builddir)datetime_intervals_cpp_datetime_intervals.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)datetime_intervals_cpp_main.o $(_builddir)datetime_intervals_cpp_db_main.o $(_builddir)datetime_intervals_cpp_db_iostream.o $(_builddir)datetime_intervals_cpp_datetime_intervals.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)datetime_intervals_cpp: $(_builddir)datetime_intervals_cpp_main.o $(_builddir)datetime_intervals_cpp_db_main.o $(_builddir)datetime_intervals_cpp_db_iostream.o $(_builddir)datetime_intervals_cpp_datetime_intervals.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)datetime_intervals_cpp_main.o $(_builddir)datetime_intervals_cpp_db_main.o $(_builddir)datetime_intervals_cpp_db_iostream.o $(_builddir)datetime_intervals_cpp_datetime_intervals.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)datetime_intervals_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)datetime_intervals_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)datetime_intervals_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)datetime_intervals_cpp_datetime_intervals.o: datetime_intervals.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common datetime_intervals.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common datetime_intervals.cpp
 
-$(_builddir)print_schema_cpp: $(_builddir)print_schema_cpp_main.o $(_builddir)print_schema_cpp_db_main.o $(_builddir)print_schema_cpp_db_iostream.o $(_builddir)print_schema_cpp_print_schema.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)print_schema_cpp_main.o $(_builddir)print_schema_cpp_db_main.o $(_builddir)print_schema_cpp_db_iostream.o $(_builddir)print_schema_cpp_print_schema.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)print_schema_cpp: $(_builddir)print_schema_cpp_main.o $(_builddir)print_schema_cpp_db_main.o $(_builddir)print_schema_cpp_db_iostream.o $(_builddir)print_schema_cpp_print_schema.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)print_schema_cpp_main.o $(_builddir)print_schema_cpp_db_main.o $(_builddir)print_schema_cpp_db_iostream.o $(_builddir)print_schema_cpp_print_schema.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)print_schema_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)print_schema_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)print_schema_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)print_schema_cpp_print_schema.o: print_schema.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common print_schema.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common print_schema.cpp
 
 clean:
 	rm -f $(_builddir)*.o

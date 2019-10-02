@@ -65,23 +65,23 @@ ITTIA_DB_HOME ?= /opt/ittiadb
 
 all: $(_builddir)random_key_benchmark_cpp
 
-$(_builddir)random_key_benchmark_cpp: $(_builddir)random_key_benchmark_cpp_main.o $(_builddir)random_key_benchmark_cpp_db_main.o $(_builddir)random_key_benchmark_cpp_db_iostream.o $(_builddir)random_key_benchmark_cpp_random_key_benchmark.o $(_builddir)random_key_benchmark_cpp_time_counter.o $(_builddir)../../libstorage.a
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)random_key_benchmark_cpp_main.o $(_builddir)random_key_benchmark_cpp_db_main.o $(_builddir)random_key_benchmark_cpp_db_iostream.o $(_builddir)random_key_benchmark_cpp_random_key_benchmark.o $(_builddir)random_key_benchmark_cpp_time_counter.o -L$(ITTIA_DB_HOME)/lib $(_builddir)../../libstorage.a -littiasql -pthread
+$(_builddir)random_key_benchmark_cpp: $(_builddir)random_key_benchmark_cpp_main.o $(_builddir)random_key_benchmark_cpp_db_main.o $(_builddir)random_key_benchmark_cpp_db_iostream.o $(_builddir)random_key_benchmark_cpp_random_key_benchmark.o $(_builddir)random_key_benchmark_cpp_time_counter.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)random_key_benchmark_cpp_main.o $(_builddir)random_key_benchmark_cpp_db_main.o $(_builddir)random_key_benchmark_cpp_db_iostream.o $(_builddir)random_key_benchmark_cpp_random_key_benchmark.o $(_builddir)random_key_benchmark_cpp_time_counter.o -L$(ITTIA_DB_HOME)/lib -littiasql -lstorage -pthread
 
 $(_builddir)random_key_benchmark_cpp_main.o: ../common/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/main.cpp
 
 $(_builddir)random_key_benchmark_cpp_db_main.o: ../common/db_main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_main.cpp
 
 $(_builddir)random_key_benchmark_cpp_db_iostream.o: ../common/db_iostream.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common ../common/db_iostream.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common ../common/db_iostream.cpp
 
 $(_builddir)random_key_benchmark_cpp_random_key_benchmark.o: random_key_benchmark.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common random_key_benchmark.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common random_key_benchmark.cpp
 
 $(_builddir)random_key_benchmark_cpp_time_counter.o: time_counter.c
-	$(CC) -c -o $@ $(CPPFLAGS) $(CFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../../ittiadb/src -I../common time_counter.c
+	$(CC) -c -o $@ $(CPPFLAGS) $(CFLAGS) -MD -MP -pthread -I$(ITTIA_DB_HOME)/include -I../common time_counter.c
 
 clean:
 	rm -f $(_builddir)*.o
