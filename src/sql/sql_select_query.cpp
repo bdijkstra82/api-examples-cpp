@@ -68,7 +68,7 @@ ins_data(storage::ittiadb::Connection& db)
     //Execute insert to created storage table
     if (DB_NOERROR == rc) {
         const int64_t rows_affected = insert_to_table.execute();
-        GET_ECODE(rc, rows_affected, "Failed to insert into create_table ");
+        GET_ECODE(rc, rows_affected, "Failed to execute insert_to_table ");
     }
 
     std::cout << "creating & inserting data into \"storage\" table" << std::endl;
